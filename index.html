@@ -9,54 +9,53 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
-<body>
-    <h1>John Emmanuel Dipol</h1>
-      <h1 class=" text-3xl text-red-700 font-bold underline ">
-      
+<body class= "text-center bg-green-300">
+      <h1 class=" text-3xl text-cyan-700 font-bold underline ">
+      John Emmanuel Dipol
     </h1>
 
-    <button id="switch">Switch</button>
+    <button id="switch" class="bg-black text-white ps-2 pe-2 border-none rounded-xl hover:bg-pink-300 duration-1000 m-5 " >Switch</button>
     <header>
-        <nav>
+        <nav class="flex justify-between ms-20 me-20">
             <span>emmanuel0925</span>
-            <ul>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact Me</a></li>
+            <ul class="flex gap-10">
+                <li><a href="#projects" class="duration-300 hover:text-pink-300">Projects</a></li>
+                <li><a href="#services" class="duration-300 hover:text-pink-300">Services</a></li>
+                <li><a href="#contact" class="duration-300 hover:text-pink-300">Contact Me</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section id="projects"> 
+    <main class="flex text-wrap gap-10 p-10 m-10">
+        <section id="projects" class="flex-1 min-w-80 p-10 border-2 border-black-500/75 bg-red-500"> 
             <h2 class="projects">My Projects</h2>
             <p>Personal portfolio, payroll system, company website, startup website, and compliance monitoring system.
             </p>
         </section>
 
-        <section id="services">
+        <section id="services" class="flex-1 min-w-80 p-10 border-2 border-black-500/75 bg-yellow-500 ">
             <h2 class="services">My Services</h2>
             <p>Website Creation, System Creation, AI Automation, Database Management, Project Management, Systems
                 Analyst</p>
         </section>
 
-        <section id="contact">
+        <section id="contact" class="flex-1 min-w-80 p-10 border-2 border-black bg-blue-500">
             <h2 class="contact">Let's build together!</h2>
-            <form action="#">
+            <form action="#" class="flex flex-col gap-10 ">
                 <!-- Name -->
                 <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text"id="name" name="name" required class="border-solid border-2">
 
                 <!-- Email -->
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" required>
+                <input type="email"name="email" id="email" required class="border-solid border-2">
 
                 <!-- Message -->
                 <label for="message">Message</label>
-                <textarea name="message" id="message" rows="5" required></textarea>
+                <textarea name="message"id="message" rows="5" required class="border-solid border-2" ></textarea>
 
                 <!-- Submit -->
-                <button type="submit">Send Message</button>
+                <button type="submit"class="bg-black text-white ps-12 pe-24 border-none rounded-xl hover:bg-pink-300 duration-1000 ">Send Message</button>
             </form>
         </section>
     </main>
