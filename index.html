@@ -1,66 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <style type="text/tailwindcss">
+        @custom-variant dark (&:where(.dark, .dark *));
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
-<body class= "text-center bg-green-300">
-      <h1 class=" text-3xl text-cyan-700 font-bold underline ">
-      John Emmanuel Dipol
+<body class= "text-center bg-green-300 dark:bg-slate-900 text-slate-900 dark:text-white ">
+    <h1 class="text-3xl font-bold underline pt-6 dark:text-cyan-400">
+        John Emmanuel Dipol
     </h1>
 
-    <button id="switch" class="bg-black text-white ps-2 pe-2 border-none rounded-xl hover:bg-pink-300 duration-1000 m-5 " >Switch</button>
+    <button id="toggledark" class="bg-black text-white px-4 py-2 rounded-xl hover:bg-pink-300 hover:text-black m-5"
+        aria-pressed="true" aria-label="Toggle dark mode">
+        Toggle
+    </button>
+
     <header>
-        <nav class="flex justify-between ms-20 me-20">
-            <span>emmanuel0925</span>
-            <ul class="flex gap-10">
-                <li><a href="#projects" class="duration-300 hover:text-pink-300">Projects</a></li>
-                <li><a href="#services" class="duration-300 hover:text-pink-300">Services</a></li>
-                <li><a href="#contact" class="duration-300 hover:text-pink-300">Contact Me</a></li>
+        <nav class="flex flex-col sm:flex-row justify-between items-center gap-4 mx-6 sm:mx-20">
+            <span class="font-semibold">emmanuel0925</span>
+            <ul class="flex gap-6 sm:gap-10">
+                <li><a href="#projects" class="hover:text-red-400">Projects</a></li>
+                <li><a href="#services" class="hover:text-yellow-400">Services</a></li>
+                <li><a href="#contact" class="hover:text-blue-400">Contact Me</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="flex text-wrap gap-10 p-10 m-10">
-        <section id="projects" class="flex-1 min-w-80 p-10 border-2 border-black-500/75 bg-red-500"> 
-            <h2 class="projects">My Projects</h2>
-            <p>Personal portfolio, payroll system, company website, startup website, and compliance monitoring system.
-            </p>
+    <main class="flex flex-col lg:flex-row flex-wrap gap-8 p-6 m-6 lg:p-10 lg:m-10">
+        <section id="projects"
+            class="flex-1 min-w-80 border-1 border-black dark:border-slate-600 p-20 bg-red-700 dark:bg-slate-800 text-blue-900 dark:text-gray-100">
+            <h2 class="text-2xl font-bold mb-4">My Projects</h2>
+            <p>Personal portfolio, payroll system, company website, startup website, and compliance monitoring
+                system.</p>
         </section>
 
-        <section id="services" class="flex-1 min-w-80 p-10 border-2 border-black-500/75 bg-yellow-500 ">
-            <h2 class="services">My Services</h2>
+        <section id="services"
+             class="flex-1 min-w-80 border-1 border-black dark:border-slate-600 p-20 bg-yellow-700 dark:bg-slate-800 text-blue-900 dark:text-gray-100">
+            <h2 class="text-2xl font-bold mb-4">My Services</h2>
             <p>Website Creation, System Creation, AI Automation, Database Management, Project Management, Systems
-                Analyst</p>
+                Analyst.</p>
         </section>
 
-        <section id="contact" class="flex-1 min-w-80 p-10 border-2 border-black bg-blue-500">
-            <h2 class="contact">Let's build together!</h2>
-            <form action="#" class="flex flex-col gap-10 ">
-                <!-- Name -->
-                <label for="name">Name</label>
-                <input type="text"id="name" name="name" required class="border-solid border-2">
+        <section id="contact"
+            class="flex-1 min-w-80 border-1 border-black dark:border-slate-600 p-20 bg-blue-700 dark:bg-slate-800 text-blue-900 dark:text-gray-100">
+            <h2 class="text-2xl font-bold mb-4">Let's build together!</h2>
+            <form action="#" class="flex flex-col gap-4 text-left">
+                <label for="name" class="font-medium">Name</label>
+                <input type="text" id="name" name="name" required
+                    class="border-2 border-slate-300 rounded-lg px-3 py-2 bg-white text-slate-900 focus:outline-none">
 
-                <!-- Email -->
-                <label for="email">Email</label>
-                <input type="email"name="email" id="email" required class="border-solid border-2">
+                <label for="email" class="font-medium">Email</label>
+                <input type="email" id="email" name="email" required
+                    class="border-2 border-slate-300 rounded-lg px-3 py-2 bg-white text-slate-900 focus:outline-none">
 
-                <!-- Message -->
-                <label for="message">Message</label>
-                <textarea name="message"id="message" rows="5" required class="border-solid border-2" ></textarea>
+                <label for="message" class="font-medium">Message</label>
+                <textarea id="message" name="message" rows="5" required
+                    class="border-2 border-slate-300 rounded-lg px-3 py-2 bg-white text-slate-900 focus:outline-none"></textarea>
 
-                <!-- Submit -->
-                <button type="submit"class="bg-black text-white ps-12 pe-24 border-none rounded-xl hover:bg-pink-300 duration-1000 ">Send Message</button>
+                <button type="submit"
+                    class="bg-black text-white px-6 py-3 rounded-xl hover:bg-pink-300 hover:text-black font-semibold">
+                    Send Message
+                </button>
             </form>
         </section>
     </main>
 
-    <!-- <script src="script.js"></script> -->
+    <script>
+        const toggleButton = document.querySelector('#toggledark');
+        const html = document.querySelector('html');
+        toggleButton.addEventListener('click', function () {
+        html.classList.toggle('dark');
+        });
+    </script>
 </body>
 
 </html>
